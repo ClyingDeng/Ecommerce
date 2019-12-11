@@ -15,3 +15,13 @@
 .cate navigator image {
   width: 100%;
 }
+.floor .floorGroup .floorTitle image {
+  width: 100%;
+}
+.floor .floorGroup .floorList navigator {
+  float: left;
+  width: 33.33%;
+}
+.floor .floorGroup .floorList navigator image {
+  width: 100%;
+}
