@@ -8,7 +8,11 @@ Page({
   data: {
     //轮播图数组
     swiperList: [],
+    //获取分类导航
     navs: [],
+    //获取楼层数据
+    floorList: [],
+
   },
 
   /**
@@ -31,7 +35,7 @@ Page({
     // });
     this.getSwiperList();
     this.getNavs();
-
+    this.getfloorList();
 
   },
   //获取轮播图
@@ -47,6 +51,14 @@ Page({
     request({ url: "https://api.zbztb.cn/api/public/v1/home/catitems" }).then(result => {
       this.setData({
         navs: result.data.message
+      })
+    });
+  },
+  //获取楼层数据
+  getfloorList() {
+    request({ url: "https://api.zbztb.cn/api/public/v1/home/floordata" }).then(result => {
+      this.setData({
+        floorList: result.data.message
       })
     });
   },

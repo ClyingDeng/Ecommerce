@@ -24,5 +24,22 @@ widthFix：让图片的标签宽高和图片标签内容的宽高都等比例的
       </navigator>
         
   </view>
-    
+    <view class="floor">
+    <view class="floorGroup" wx:for="{{floorList}}" wx:for-item="item1" wx:for-index="index1" wx:key="floor_title">
+        <view class="floorTitle">
+            <image mode="widthFix" src="{{item1.floor_title.image_src}}" />
+        </view>
+          <view class="floorList">
+              <!-- <image src="{{item1.product_list.index.image_src}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" /> -->
+                <navigator wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="floor_title">
+                    <image mode="widthFix" src="{{item2.image_src}}"/>
+                      
+                </navigator>
+                  
+          </view>
+    </view>
+      
+        
+    </view>
+      
 </view>

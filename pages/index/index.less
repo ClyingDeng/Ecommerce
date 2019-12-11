@@ -14,10 +14,36 @@
 
   navigator {
     padding: 20rpx;
-    flex: 1;
+    flex   : 1;
 
     image {
       width: 100%;
+    }
+  }
+}
+
+.floor {
+  .floorGroup {
+    .floorTitle {
+      image {
+        width: 100%;
+      }
+    }
+
+    .floorList {
+      navigator {
+        float: left;
+        width: 33.33%;
+        // 后四个超链接
+        &:nth-child(-n+4){
+          image{
+            
+          }
+        }
+        image{
+          width: 100%;
+        }
+      }
     }
   }
 }
