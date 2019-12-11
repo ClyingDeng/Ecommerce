@@ -15,13 +15,28 @@
 .cate navigator image {
   width: 100%;
 }
+.floor .floorGroup .floorTitle {
+  padding: 10rpx 0;
+}
 .floor .floorGroup .floorTitle image {
   width: 100%;
+}
+.floor .floorGroup .floorList {
+  overflow: hidden;
 }
 .floor .floorGroup .floorList navigator {
   float: left;
   width: 33.33%;
 }
+.floor .floorGroup .floorList navigator:nth-last-child(-n+4) {
+  height: 27.72711207vw;
+  border-left: 10rpx solid #ffffff;
+}
+.floor .floorGroup .floorList navigator:nth-child(2),
+.floor .floorGroup .floorList navigator:nth-child(3) {
+  border-bottom: 10rpx solid #ffffff;
+}
 .floor .floorGroup .floorList navigator image {
   width: 100%;
+  height: 100%;
 }

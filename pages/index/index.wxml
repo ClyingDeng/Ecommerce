@@ -1,45 +1,34 @@
-
 <view class="index">
-<SearchInput></SearchInput>
-<view class="swiper">
-<!-- 
-swiper标签存在默认的高度宽度    100%*240px 
+    <SearchInput></SearchInput>
+    <view class="swiper">
+        <!-- swiper标签存在默认的高度宽度    100%*240px 
 image标签也存在默认的宽度和高度 320px*240px
 image标签属性
-widthFix：让图片的标签宽高和图片标签内容的宽高都等比例的发生变化
--->
-    <swiper autoplay indicator-dots circular>
-    <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
-        <navigator class="" target="" url="" hover-class="navigator-hover" open-type="navigate">
-            <image class="" src="{{item.image_src}}" mode="widthFix" lazy-load="false" binderror="" bindload="" />
-        </navigator>
-    </swiper-item>
-    </swiper>
-</view>
-  <view class="cate">
-    
-      <navigator wx:for="{{navs}}" wx:key="name">
-  <image class="" src="{{item.image_src}}" mode="widthFix" />
-          
-      </navigator>
-        
-  </view>
-    <view class="floor">
-    <view class="floorGroup" wx:for="{{floorList}}" wx:for-item="item1" wx:for-index="index1" wx:key="floor_title">
-        <view class="floorTitle">
-            <image mode="widthFix" src="{{item1.floor_title.image_src}}" />
-        </view>
-          <view class="floorList">
-              <!-- <image src="{{item1.product_list.index.image_src}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" /> -->
-                <navigator wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="floor_title">
-                    <image mode="widthFix" src="{{item2.image_src}}"/>
-                      
+widthFix：让图片的标签宽高和图片标签内容的宽高都等比例的发生变化 -->
+        <swiper autoplay indicator-dots circular>
+            <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
+                <navigator class="" target="" url="" hover-class="navigator-hover" open-type="navigate">
+                    <image class="" src="{{item.image_src}}" mode="widthFix" lazy-load="false" binderror="" bindload="" />
                 </navigator>
-                  
-          </view>
+            </swiper-item>
+        </swiper>
     </view>
-      
-        
+    <view class="cate">
+        <navigator wx:for="{{navs}}" wx:key="name">
+            <image class="" src="{{item.image_src}}" mode="widthFix" />
+        </navigator>
     </view>
-      
+    <view class="floor">
+        <view class="floorGroup" wx:for="{{floorList}}" wx:for-item="item1" wx:for-index="index1" wx:key="floor_title">
+            <view class="floorTitle">
+                <image mode="widthFix" src="{{item1.floor_title.image_src}}" />
+            </view>
+            <view class="floorList">
+                <!-- <image src="{{item1.product_list.index.image_src}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" /> -->
+                <navigator wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="floor_title">
+                    <image mode="{{index2 === 0?'widthFix':'scaleToFill'}}" src="{{item2.image_src}}" />
+                </navigator>
+            </view>
+        </view>
+    </view>
 </view>
