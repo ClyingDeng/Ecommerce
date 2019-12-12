@@ -21,7 +21,7 @@ Page({
   onLoad: function (options) {
     //1.发送异步请求 优化手段可以通过es6的 promise来解决这个问题
     // var reqTask = wx.request({
-    //   url: 'https://api.zbztb.cn/api/public/v1/home/swiperdata',
+    //   url: '/home/swiperdata',
     //   success: (result) => {
     //     // console.log(result);
     //     this.setData({
@@ -40,7 +40,7 @@ Page({
   },
   //获取轮播图
   getSwiperList() {
-    request({ url: "https://api.zbztb.cn/api/public/v1/home/swiperdata" }).then(result => {
+    request({ url: "/home/swiperdata" }).then(result => {
       this.setData({
         swiperList: result.data.message
       })
@@ -48,7 +48,7 @@ Page({
   },
   //获取分类导航
   getNavs() {
-    request({ url: "https://api.zbztb.cn/api/public/v1/home/catitems" }).then(result => {
+    request({ url: "/home/catitems" }).then(result => {
       this.setData({
         navs: result.data.message
       })
@@ -56,7 +56,7 @@ Page({
   },
   //获取楼层数据
   getfloorList() {
-    request({ url: "https://api.zbztb.cn/api/public/v1/home/floordata" }).then(result => {
+    request({ url: "/home/floordata" }).then(result => {
       this.setData({
         floorList: result.data.message
       })
