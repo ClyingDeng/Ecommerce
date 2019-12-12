@@ -25,24 +25,41 @@
 .floor {
   .floorGroup {
     .floorTitle {
+      padding: 10rpx 0;
+
       image {
         width: 100%;
       }
     }
 
     .floorList {
+      overflow: hidden;
+
       navigator {
         float: left;
         width: 33.33%;
+
         // 后四个超链接
-        &:nth-child(-n+4){
-          image{
-            
-          }
+        &:nth-last-child(-n+4) {
+          // 原图宽高 232 *386
+          // 232 / 386 = 33.33vw / height
+          // 第一张图片height: 33.33vw / 232 *386
+          height        : 33.33vw / 232 * 386 / 2;
+          border-left   : 10rpx solid #ffffff;
+          // 2 3 两个超连接
         }
-        image{
+
+        &:nth-child(2),
+        &:nth-child(3) {
+          border-bottom: 10rpx solid #ffffff;
+        }
+
+        image {
           width: 100%;
+          height: 100%;
         }
+
+
       }
     }
   }
