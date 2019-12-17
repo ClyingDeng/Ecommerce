@@ -44,5 +44,30 @@ Page({
       urls // 需要预览的图片http链接列表
     })
   },
+  //添加至购物车
+  handleCartAdd() {
+    //获取缓存中的购物车 数组
+    let cart = wx.getStorageSync('cart') || [];
+    //判断商品对象是否存在于购物车数组中
+    let index = cart.findIndex(v => v.goods_id === this.GoodsInfo.goods_id);
+    if (index === -1) {
+      //不存在于购物车中，给购物车添加
+      this.GoodsInfo.num = 1;
+      cart.push(this.GoodsInfo);
+    } else {
+      //商品已存在
+      cart[index].num++;
 
+    }
+    //把购物车中数据重新添加到缓存中
+    wx.setStorageSync('cart', cart);
+    wx.showToast({
+      title: '加入成功',
+      icon: 'success',
+      mask: true, //true 防止用户手抖 疯狂点击
+    });
+
+
+
+  }
 })
