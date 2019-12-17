@@ -31,7 +31,7 @@ Page({
   },
   queryParams: {
     query: '',
-    cid: '',
+    cid: null,
     pagenum: 1,
     pagesize: 10
   },
@@ -43,8 +43,9 @@ Page({
   onLoad: function (options) {
     console.log(options);
     this.queryParams.cid = options.cid;
+    console.log(this.queryParams);
     this.getGoodsList();
-    
+
   },
   //获取商品分类列表
   async getGoodsList() {
