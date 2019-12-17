@@ -27,7 +27,7 @@ Page({
       this.getCates();
     } else {
       // 存在 
-      if (Date.now() - Cates.time > 1000 * 10) {
+      if (Date.now() - Cates.time > 1000 * 60 *5) {
         //数据过期
         this.getCates();
       } else {

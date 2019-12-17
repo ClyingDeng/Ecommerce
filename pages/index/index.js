@@ -41,24 +41,27 @@ Page({
   //获取轮播图
   getSwiperList() {
     request({ url: "/home/swiperdata" }).then(result => {
+      console.log(result);
       this.setData({
-        swiperList: result.data.message
+        swiperList: result
       })
     });
   },
   //获取分类导航
   getNavs() {
     request({ url: "/home/catitems" }).then(result => {
+      console.log(result);
       this.setData({
-        navs: result.data.message
+        navs: result
       })
     });
   },
   //获取楼层数据
   getfloorList() {
     request({ url: "/home/floordata" }).then(result => {
+      console.log(result);
       this.setData({
-        floorList: result.data.message
+        floorList: result
       })
     });
   },
