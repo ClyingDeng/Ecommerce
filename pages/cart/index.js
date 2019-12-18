@@ -14,53 +14,56 @@ Page({
   onLoad: function (options) {
 
   },
+  //处理添加收货地址
+  handleAddress() {
+      // wx.chooseAddress({
+      //   success: (result) => {
+      //     console.log(result);
+      //   },
+      //   fail: () => { },
+      //   complete: () => { }
+      // });
+      // wx.getSetting({
+      //   success: (res) => {
+      //     console.log(res)
+      //   },
+      //   fail: () => {},
+      //   complete: () => {}
+      // });
+        
+    //获取权限
+    wx.getSetting({
+      success: (result) => {
+        console.log(result);
+        //权限状态  一些怪异属性名使用[] 形式获取属性值
+        const scopeAddress = result.authSetting["scope.address"];
+        if (scopeAddress === true || scopeAddress === undefined) {
+          wx.chooseAddress({
+            success: (result1) => {
+              console.log(result1);
+            }
+          });
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+        } else {
+          //用户拒绝过授予权限 先诱导用户打开授权界面
+          wx.openSetting({
+            success: (result2) => {
+              //可以调用收货地址代码
+              wx.chooseAddress({
+                success: (result3) => {
+                  console.log(result3);
+                }
+              });
 
-  },
+            }
+          });
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+        }
+        console.log(result);
+      },
+    });
 
   }
+
+
 })
