@@ -30,8 +30,8 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "icons/home.png",
-        "selectedIconPath": "icons/home1.png"
+        "iconPath": "icons/Home.png",
+        "selectedIconPath": "icons/Home1.png"
       },
       {
         "pagePath": "pages/category/index",
