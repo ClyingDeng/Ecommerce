@@ -53,6 +53,7 @@ Page({
     if (index === -1) {
       //不存在于购物车中，给购物车添加
       this.GoodsInfo.num = 1;
+      this.GoodsInfo.checked = true;
       cart.push(this.GoodsInfo);
     } else {
       //商品已存在
