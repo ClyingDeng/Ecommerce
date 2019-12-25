@@ -1,66 +1,45 @@
-// pages/pay/index.js
+import { getSetting, chooseAddress, openSetting, showModal, showToast } from '../../utils/asyncWX.js'
+const regeneratorRuntime = require('../../lib/runtime.js');
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    address: {},
+    carts: [],
+    totalPrice: 0,
+    totalNum: 0,
+  },
+  onShow() {
+    //获取本地地址数据
+    const address = wx.getStorageSync('address');
+    //获取缓存cart数据
+    let carts = wx.getStorageSync('cart') || [];
+    //过滤后的数组
+    carts = carts.filter(v => v.checked);
+
+    //总价格 总数量
+    let totalPrice = 0;
+    let totalNum = 0;
+    carts.forEach(v => {
+        totalPrice += v.num * v.goods_price;
+        totalNum += v.num; 
+    });
+    //给data赋值
+    this.setData({ address, carts, totalNum, totalPrice });
+    wx.setStorageSync('cart', carts);
 
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+//点击支付
+handleOrderPay(){
+  //判断缓存中有无token
+  const token = wx.getStorageSync('token');
+  //判断
+  if(!token){
+    wx.navigateTo({
+      url: '/pages/auth/index'
+    });
+    return;
+      
   }
+    console.log('已经存在token了');
+}
+
 })
