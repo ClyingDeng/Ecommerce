@@ -46,6 +46,7 @@ Page({
     console.log(this.queryParams);
     this.getGoodsList();
 
+
   },
   //获取商品分类列表
   async getGoodsList() {
@@ -98,6 +99,7 @@ Page({
     //调用方法发送请求
     this.getGoodsList();
 
-  }
+  },
+
 
 })

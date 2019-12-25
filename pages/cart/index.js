@@ -2,14 +2,19 @@ import { getSetting, chooseAddress, openSetting } from '../../utils/asyncWX.js'
 const regeneratorRuntime = require('../../lib/runtime.js');
 Page({
   data: {
-    address: {}
+    address: {},
+    carts: []
   },
   onShow() {
     //获取本地地址数据
     const address = wx.getStorageSync('address');
+    //获取缓存cart数据
+    const carts = wx.getStorageSync('cart');
     //给data赋值
-    this.setData({ address });
+    this.setData({ address, carts });
 
+  },
+  onload() {
   },
   //处理添加收货地址
   async handleAddress() {
@@ -55,7 +60,7 @@ Page({
       }
       //调用收货地址
       let address = await chooseAddress();
-      address.all = address.provinceName+address.cityName+address.countyName+address.detailInfo;
+      address.all = address.provinceName + address.cityName + address.countyName + address.detailInfo;
       //收货地址存入缓存
       wx.setStorageSync('address', address);
 
@@ -68,5 +73,14 @@ Page({
     }
 
   },
+  handleNum(e) {
+    // 获取传递过来的参数
+    const { opration, id } = e.currentTarget.dataset;
+    console.log(opration, id);
+    const {cart} = this.data;
+    const index = cart.findIndex(v=>v.goods_id === id);
+    cart[index].handleNum += opration;
+    this.setCart(cart);
+  }
 
 })
