@@ -1,0 +1,40 @@
+.order_main {
+  .order_item {
+    padding      : 20rpx;
+    border-bottom: 1px solid #cccccc;
+    color        : #666666;
+
+    .order_no_row {
+      display        : flex;
+      padding        : 10rpx 0;
+      justify-content: space-between;
+
+      .order_no_text {}
+
+      view.order_no_value {}
+    }
+
+    view.order_price_row {
+      display        : flex;
+      padding        : 10rpx 0;
+      justify-content: space-between;
+
+      view.order_price_text {}
+
+      .order_price_value {
+        color    : var(--themeColor);
+        font-size: 32rpx;
+      }
+    }
+
+    .order_item_row {
+      display        : flex;
+      padding        : 10rpx 0;
+      justify-content: space-between;
+
+      .order_time_text {}
+
+      .order_time_value {}
+    }
+  }
+}

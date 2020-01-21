@@ -12,7 +12,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onShow: function () {
+    let pages = getCurrentPages();
+    let currentPage = pages[pages.length - 1];
+    let options = currentPage.options;
+
+
     const { goods_id } = options;
     console.log(goods_id);
     this.getGoodsDetail(goods_id);
